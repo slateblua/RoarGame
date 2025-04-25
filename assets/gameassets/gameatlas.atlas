@@ -1,0 +1,561 @@
+
+gameatlas.png
+size: 1024, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+core/bonus
+  rotate: false
+  xy: 2, 2
+  size: 199, 200
+  orig: 199, 200
+  offset: 0, 0
+  index: -1
+core/character_hero
+  rotate: false
+  xy: 434, 608
+  size: 375, 374
+  orig: 375, 374
+  offset: 0, 0
+  index: -1
+core/character_pet
+  rotate: false
+  xy: 2, 204
+  size: 380, 375
+  orig: 380, 375
+  offset: 0, 0
+  index: -1
+core/enemy_anxiety
+  rotate: false
+  xy: 384, 229
+  size: 155, 154
+  orig: 155, 154
+  offset: 0, 0
+  index: -1
+core/enemy_doubt
+  rotate: false
+  xy: 581, 452
+  size: 154, 154
+  orig: 154, 154
+  offset: 0, 0
+  index: -1
+core/enemy_fear
+  rotate: false
+  xy: 400, 74
+  size: 155, 153
+  orig: 155, 153
+  offset: 0, 0
+  index: -1
+core/enemy_trauma
+  rotate: false
+  xy: 581, 297
+  size: 155, 153
+  orig: 155, 153
+  offset: 0, 0
+  index: -1
+core/map-tile
+  rotate: false
+  xy: 2, 581
+  size: 430, 401
+  orig: 430, 401
+  offset: 0, 0
+  index: -1
+core/projectile_courage
+  rotate: false
+  xy: 811, 788
+  size: 197, 194
+  orig: 197, 194
+  offset: 0, 0
+  index: -1
+core/projectile_joy
+  rotate: false
+  xy: 811, 592
+  size: 196, 194
+  orig: 196, 194
+  offset: 0, 0
+  index: -1
+core/projectile_love
+  rotate: false
+  xy: 203, 7
+  size: 195, 195
+  orig: 195, 195
+  offset: 0, 0
+  index: -1
+core/projectile_peace
+  rotate: false
+  xy: 384, 385
+  size: 195, 194
+  orig: 195, 194
+  offset: 0, 0
+  index: -1
+
+gameatlas2.png
+size: 1024, 512
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+components/ui-white-pixel
+  rotate: false
+  xy: 885, 428
+  size: 10, 10
+  split: 3, 3, 3, 3
+  pad: 0, 0, 0, 0
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-10
+  rotate: false
+  xy: 476, 2
+  size: 30, 24
+  split: 14, 14, 0, 0
+  pad: 0, 0, 0, 0
+  orig: 30, 24
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-12
+  rotate: false
+  xy: 504, 45
+  size: 26, 26
+  split: 11, 11, 11, 11
+  pad: 0, 0, 0, 0
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-15
+  rotate: false
+  xy: 424, 2
+  size: 50, 50
+  split: 25, 24, 21, 27
+  pad: 0, 0, 0, 0
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-16
+  rotate: false
+  xy: 314, 2
+  size: 37, 32
+  split: 17, 17, 0, 0
+  pad: 0, 0, 0, 0
+  orig: 37, 32
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-19
+  rotate: false
+  xy: 787, 336
+  size: 44, 38
+  split: 20, 20, 17, 18
+  pad: 0, 0, 0, 0
+  orig: 44, 38
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-20
+  rotate: false
+  xy: 698, 249
+  size: 42, 42
+  split: 20, 19, 20, 20
+  pad: 0, 0, 0, 0
+  orig: 42, 42
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-25
+  rotate: false
+  xy: 644, 239
+  size: 52, 52
+  split: 25, 25, 25, 25
+  pad: 0, 0, 0, 0
+  orig: 52, 52
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-30
+  rotate: false
+  xy: 440, 76
+  size: 70, 70
+  split: 34, 34, 34, 34
+  pad: 0, 0, 0, 0
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-35
+  rotate: false
+  xy: 366, 54
+  size: 72, 72
+  split: 36, 35, 35, 36
+  pad: 0, 0, 0, 0
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-40
+  rotate: false
+  xy: 577, 346
+  size: 82, 82
+  split: 38, 41, 39, 41
+  pad: 0, 0, 0, 0
+  orig: 82, 82
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-40-top
+  rotate: false
+  xy: 577, 299
+  size: 85, 45
+  split: 40, 41, 40, 1
+  pad: 0, 0, 0, 0
+  orig: 85, 45
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-50
+  rotate: false
+  xy: 2, 2
+  size: 102, 102
+  split: 50, 50, 51, 50
+  pad: 0, 0, 0, 0
+  orig: 102, 102
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-60
+  rotate: false
+  xy: 349, 386
+  size: 124, 124
+  split: 60, 60, 60, 60
+  pad: 0, 0, 0, 0
+  orig: 124, 124
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-70
+  rotate: false
+  xy: 203, 366
+  size: 144, 144
+  split: 70, 70, 70, 70
+  pad: 0, 0, 0, 0
+  orig: 144, 144
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-8
+  rotate: false
+  xy: 349, 366
+  size: 18, 18
+  split: 7, 7, 7, 7
+  pad: 0, 0, 0, 0
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-90
+  rotate: false
+  xy: 2, 300
+  size: 199, 210
+  split: 99, 99, 104, 104
+  pad: 0, 0, 0, 0
+  orig: 199, 210
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-10
+  rotate: false
+  xy: 561, 170
+  size: 38, 38
+  split: 18, 18, 18, 18
+  pad: 0, 0, 0, 0
+  orig: 38, 38
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-16
+  rotate: false
+  xy: 495, 148
+  size: 50, 40
+  split: 24, 24, 0, 0
+  pad: 0, 0, 0, 0
+  orig: 50, 40
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-20
+  rotate: false
+  xy: 833, 332
+  size: 42, 42
+  split: 19, 19, 19, 19
+  pad: 0, 0, 0, 0
+  orig: 42, 42
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-25
+  rotate: false
+  xy: 366, 2
+  size: 56, 50
+  split: 26, 26, 23, 23
+  pad: 0, 0, 0, 0
+  orig: 56, 50
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-30
+  rotate: false
+  xy: 497, 190
+  size: 62, 62
+  split: 29, 29, 29, 29
+  pad: 0, 0, 0, 0
+  orig: 62, 62
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-35
+  rotate: false
+  xy: 342, 204
+  size: 75, 76
+  split: 35, 36, 36, 36
+  pad: 0, 0, 0, 0
+  orig: 75, 76
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-40
+  rotate: false
+  xy: 661, 346
+  size: 82, 82
+  split: 39, 39, 39, 39
+  pad: 0, 0, 0, 0
+  orig: 82, 82
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-42
+  rotate: false
+  xy: 475, 328
+  size: 100, 100
+  split: 49, 49, 49, 49
+  pad: 0, 0, 0, 0
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-50
+  rotate: false
+  xy: 203, 258
+  size: 106, 106
+  split: 51, 51, 51, 51
+  pad: 0, 0, 0, 0
+  orig: 106, 106
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-50.9 copy
+  rotate: false
+  xy: 897, 402
+  size: 108, 108
+  orig: 108, 108
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-bottom-stroked-35
+  rotate: false
+  xy: 664, 293
+  size: 76, 51
+  split: 36, 36, 11, 36
+  pad: 0, 0, 0, 0
+  orig: 76, 51
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-right-35
+  rotate: false
+  xy: 314, 36
+  size: 50, 76
+  split: 12, 36, 37, 37
+  orig: 50, 76
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-thick-25
+  rotate: false
+  xy: 395, 307
+  size: 75, 77
+  split: 36, 36, 37, 37
+  pad: 0, 0, 0, 0
+  orig: 75, 77
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-top-35
+  rotate: false
+  xy: 419, 190
+  size: 76, 41
+  split: 36, 36, 36, 1
+  pad: 0, 0, 0, 0
+  orig: 76, 41
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-top-50
+  rotate: false
+  xy: 106, 2
+  size: 102, 102
+  split: 49, 49, 49, 49
+  pad: 0, 0, 0, 0
+  orig: 102, 102
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-border-top-stroked-62
+  rotate: false
+  xy: 475, 430
+  size: 138, 80
+  split: 68, 68, 64, 14
+  pad: 0, 0, 0, 0
+  orig: 138, 80
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-bottom-25
+  rotate: false
+  xy: 567, 248
+  size: 75, 49
+  split: 36, 37, 18, 29
+  pad: 0, 0, 0, 0
+  orig: 75, 49
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-bottom-35
+  rotate: false
+  xy: 418, 148
+  size: 75, 40
+  split: 35, 36, 1, 35
+  pad: 0, 0, 0, 0
+  orig: 75, 40
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-bottom-40
+  rotate: false
+  xy: 311, 282
+  size: 82, 82
+  split: 40, 40, 0, 46
+  pad: 0, 0, 0, 0
+  orig: 82, 82
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-bottom-50
+  rotate: false
+  xy: 210, 10
+  size: 102, 102
+  split: 51, 49, 0, 49
+  pad: 0, 0, 0, 0
+  orig: 102, 102
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-bottom-95
+  rotate: false
+  xy: 2, 106
+  size: 192, 192
+  split: 94, 94, 94, 94
+  pad: 0, 0, 0, 0
+  orig: 192, 192
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-bottom-left-35
+  rotate: false
+  xy: 419, 233
+  size: 72, 72
+  split: 34, 34, 34, 34
+  pad: 0, 0, 0, 0
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-bottom-right-35
+  rotate: false
+  xy: 493, 254
+  size: 72, 72
+  split: 34, 34, 34, 34
+  pad: 0, 0, 0, 0
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-corners-35
+  rotate: false
+  xy: 342, 128
+  size: 74, 74
+  split: 35, 35, 35, 35
+  pad: 0, 0, 0, 0
+  orig: 74, 74
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-left
+  rotate: false
+  xy: 196, 114
+  size: 71, 142
+  split: 55, 14, 70, 70
+  pad: 0, 0, 0, 0
+  orig: 71, 142
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-left-20
+  rotate: false
+  xy: 601, 162
+  size: 26, 46
+  split: 21, 1, 0, 0
+  pad: 0, 0, 21, 21
+  orig: 26, 46
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-left-25
+  rotate: false
+  xy: 787, 376
+  size: 47, 62
+  split: 30, 15, 0, 0
+  pad: 0, 0, 0, 0
+  orig: 47, 62
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-left-35
+  rotate: false
+  xy: 512, 73
+  size: 40, 73
+  split: 36, 2, 35, 36
+  pad: 0, 0, 0, 0
+  orig: 40, 73
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-right
+  rotate: false
+  xy: 269, 114
+  size: 71, 142
+  split: 14, 55, 70, 70
+  pad: 0, 0, 0, 0
+  orig: 71, 142
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-right-20
+  rotate: false
+  xy: 476, 28
+  size: 26, 46
+  split: 1, 21, 21, 21
+  pad: 0, 0, 0, 0
+  orig: 26, 46
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-right-25
+  rotate: false
+  xy: 836, 376
+  size: 47, 62
+  split: 5, 40, 30, 30
+  pad: 0, 0, 0, 0
+  orig: 47, 62
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-right-35
+  rotate: false
+  xy: 745, 355
+  size: 40, 73
+  split: 2, 36, 35, 36
+  pad: 0, 0, 0, 0
+  orig: 40, 73
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-top-35
+  rotate: false
+  xy: 561, 210
+  size: 71, 36
+  split: 35, 35, 35, 0
+  pad: 0, 0, 0, 0
+  orig: 71, 36
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-top-50
+  rotate: false
+  xy: 755, 440
+  size: 140, 70
+  split: 65, 67, 51, 0
+  pad: 0, 0, 0, 0
+  orig: 140, 70
+  offset: 0, 0
+  index: -1
+components/ui-white-squircle-top-62
+  rotate: false
+  xy: 615, 430
+  size: 138, 80
+  split: 68, 68, 71, 7
+  pad: 0, 0, 0, 0
+  orig: 138, 80
+  offset: 0, 0
+  index: -1
