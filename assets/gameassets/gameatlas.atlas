@@ -53,7 +53,7 @@ core/enemy_trauma
   orig: 155, 153
   offset: 0, 0
   index: -1
-core/map-tile
+core/map_tile
   rotate: false
   xy: 2, 581
   size: 430, 401
