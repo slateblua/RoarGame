@@ -1,6 +1,8 @@
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 eclipse.project.name = appName + '-core'
 
+import com.badlogic.gdx.tools.texturepacker.TexturePacker
+
 dependencies {
   api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
   api "com.badlogicgames.gdx:gdx:$gdxVersion"
@@ -28,5 +30,11 @@ buildscript {
   }
   dependencies {
     classpath 'com.badlogicgames.gdx:gdx-tools:1.11.0'
+  }
+}
+
+tasks.register('packGameTextures') {
+  doFirst {
+    TexturePacker.process("raws", "assets/gameassets", "gameatlas")
   }
 }
