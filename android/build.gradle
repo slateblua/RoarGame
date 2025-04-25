@@ -20,6 +20,7 @@ android {
       res.setSrcDirs(['res'])
       assets.setSrcDirs(['../assets'])
       jniLibs.setSrcDirs(['libs'])
+      assets.srcDirs = ['../assets']
     }
   }
   packagingOptions {
