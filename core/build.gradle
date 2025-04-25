@@ -15,3 +15,18 @@ dependencies {
     implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
   }
 }
+
+buildscript {
+  repositories {
+    mavenCentral()
+    gradlePluginPortal()
+    google()
+
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    maven { url 'https://artifacts.applovin.com/android' }
+
+  }
+  dependencies {
+    classpath 'com.badlogicgames.gdx:gdx-tools:1.11.0'
+  }
+}
