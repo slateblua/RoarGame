@@ -1,32 +1,30 @@
 package com.slateblua.roargame;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
+import com.slateblua.roargame.scenes.screens.SplashScreen;
+import lombok.Getter;
 
-/** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class RoarGame extends ApplicationAdapter {
+@Getter
+public class RoarGame extends Game {
     private SpriteBatch batch;
-    private Texture image;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
-        image = new Texture("libgdx.png");
+        addModules();
+
+        setScreen(new SplashScreen(this));
     }
 
-    @Override
-    public void render() {
-        ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
-        batch.begin();
-        batch.draw(image, 140, 210);
-        batch.end();
+    private void addModules () {
+        Locator.get().addModule(Resources.class);
+        Locator.get().addModule(GameData.class);
     }
 
     @Override
     public void dispose() {
         batch.dispose();
-        image.dispose();
+        getScreen().dispose();
     }
 }
