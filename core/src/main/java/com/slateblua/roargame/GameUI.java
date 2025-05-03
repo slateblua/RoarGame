@@ -1,10 +1,9 @@
-package com.roargame.ui;
+package com.slateblua.roargame;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.slateblua.roargame.scenes.components.OffsetButton;
 import com.slateblua.roargame.scenes.pages.BasePage;
 import com.slateblua.roargame.scenes.pages.BasePopup;
 import com.slateblua.roargame.scenes.pages.NavController;

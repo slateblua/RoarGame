@@ -11,7 +11,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pools;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.roargame.ui.GameUI;
+import com.slateblua.roargame.GameUI;
 import com.slateblua.roargame.Map;
 import com.slateblua.roargame.Player;
 import com.slateblua.roargame.RoarGame;
