@@ -3,10 +3,7 @@ package com.slateblua.roargame.scenes.pages;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
 public abstract class BasePage extends Table {
-    protected NavController navController;
-
-    public BasePage (NavController navController) {
-        this.navController = navController;
+    public BasePage () {
         setFillParent(true);
         init();
     }
