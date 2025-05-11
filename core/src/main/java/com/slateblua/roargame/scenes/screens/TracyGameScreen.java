@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pools;
@@ -84,6 +85,8 @@ public class TracyGameScreen extends ScreenAdapter {
         bonusSpawnTimer = 0;
     }
 
+    private final Vector3 cameraTarget = new Vector3();
+
     @Override
     public void render(float delta) {
         update(delta);
@@ -91,8 +94,10 @@ public class TracyGameScreen extends ScreenAdapter {
         Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        // Set camera to follow player
-        camera.position.set(player.getPosition().x, player.getPosition().y, 0);
+        // Smooth camera follow with delay
+        cameraTarget.set(player.getPosition().x, player.getPosition().y, 0);
+        camera.position.lerp(cameraTarget, 2f * delta);
+
         camera.update();
         batch.setProjectionMatrix(camera.combined);
 
