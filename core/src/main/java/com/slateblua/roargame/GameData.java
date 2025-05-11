@@ -3,9 +3,11 @@ package com.slateblua.roargame;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.ObjectMap;
 import com.badlogic.gdx.utils.XmlReader;
 import com.slateblua.roargame.bonus.BonusData;
 import com.slateblua.roargame.pet.PetData;
+import com.slateblua.roargame.weapon.Weapon;
 import com.slateblua.roargame.weapon.WeaponData;
 import lombok.Getter;
 
@@ -20,6 +22,8 @@ public class GameData {
     private final Array<WeaponData> weapons = new Array<>();
     @Getter
     private final Array<CharacterData> characters = new Array<>();
+
+    private final ObjectMap<WeaponData, Weapon> weaponMap = new ObjectMap<>();
 
     public GameData () {
         loadBonuses();
@@ -40,6 +44,8 @@ public class GameData {
         for (final XmlReader.Element weapon : weaponsXml) {
             final WeaponData weaponData = new WeaponData(weapon);
             weapons.add(weaponData);
+
+            weaponMap.put(weaponData, Weapon.fromData(weaponData));
         }
     }
 
