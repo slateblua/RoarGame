@@ -89,7 +89,7 @@ public class GameUI {
             super(Style.BLUE_40_35_7_13, "core/projectile_" + data.getBulletData().getBulletId().getName());
 
             setOnClick(() -> {
-
+                Player.get().setCurrentWeapon(Locator.get(GameData.class).getWeaponMap().get(data));
             });
         }
     }

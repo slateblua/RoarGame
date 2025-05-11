@@ -70,7 +70,7 @@ public class TracyGameScreen extends ScreenAdapter {
         gameUI = GameUI.get();
 
         // Create entities
-        player = new Player(new Vector2(0, 0));
+        player = Player.get();
         map = new Map();
         enemyFactory = new EnemyFactory();
         collisionHandler = new CollisionHandler();

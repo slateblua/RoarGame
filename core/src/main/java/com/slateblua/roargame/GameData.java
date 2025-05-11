@@ -23,6 +23,7 @@ public class GameData {
     @Getter
     private final Array<CharacterData> characters = new Array<>();
 
+    @Getter
     private final ObjectMap<WeaponData, Weapon> weaponMap = new ObjectMap<>();
 
     public GameData () {

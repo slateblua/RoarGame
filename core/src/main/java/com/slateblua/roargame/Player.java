@@ -4,12 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
 import com.slateblua.roargame.bonus.Bonus;
 import com.slateblua.roargame.weapon.*;
 import lombok.Getter;
+import lombok.Setter;
 
 public class Player implements Movable {
     public static final float SPEED = 400f;
@@ -25,27 +24,27 @@ public class Player implements Movable {
     @Getter
     private int score;
 
-    private Array<Weapon> weapons;
+    @Getter @Setter
+    private Weapon currentWeapon;
 
-    private int currentWeaponIndex;
 
-    public Player (Vector2 position) {
-        this.position = position;
-        this.velocity = new Vector2();
+    private Player () {
+        this.position = new Vector2(0, 0);
+        this.velocity = new Vector2(0, 0);
+        GameData gameData = Locator.get(GameData.class);
+        this.currentWeapon = gameData.getWeaponMap().get(gameData.getWeapons().first());
         this.health = 100;
         this.energy = 0;
         this.score = 0;
-        this.currentWeaponIndex = 0;
-
-        addWeapons();
     }
 
-    private void addWeapons () {
-        weapons = new Array<>();
-        final Array<WeaponData> weaponsData = Locator.get(GameData.class).getWeapons();
-        for (final WeaponData weaponsDatum : weaponsData) {
-            weapons.add(Weapon.fromData(weaponsDatum));
+    private static Player player;
+
+    public static Player get () {
+        if (player == null) {
+            player = new Player();
         }
+        return player;
     }
 
     public void update (float deltaTime) {
@@ -88,12 +87,6 @@ public class Player implements Movable {
         // Normalize diagonal movement
         if (velocity.len() > SPEED) {
             velocity.nor().scl(SPEED);
-        }
-
-        // Weapon switching
-        if (Gdx.input.isKeyJustPressed(Input.Keys.M)) {
-            currentWeaponIndex++;
-            currentWeaponIndex = MathUtils.clamp(currentWeaponIndex, 0, weapons.size - 1);
         }
     }
 
@@ -138,10 +131,6 @@ public class Player implements Movable {
 
     public void addScore (int value) {
         score += value;
-    }
-
-    public Weapon getCurrentWeapon () {
-        return weapons.get(currentWeaponIndex);
     }
 
     @Override
