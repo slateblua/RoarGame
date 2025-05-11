@@ -9,11 +9,10 @@ public class StressEnemy extends BaseEnemy {
     public StressEnemy (Vector2 position) {
         super(position, 90, 10, 50, BaseEnemy.ENEMY_BASE_SPEED * 1.5f);
     }
-    final TextureRegion texture = Locator.get(Resources.class).getTexture("core/enemy_anxiety");
 
     @Override
     public TextureRegion getTexture () {
-        return texture;
+        return Locator.get(Resources.class).getTexture("core/enemy_anxiety");
     }
 
     @Override
