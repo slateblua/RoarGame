@@ -6,51 +6,58 @@ filter: Nearest, Nearest
 repeat: none
 core/bonus
   rotate: false
-  xy: 384, 815
+  xy: 2, 68
   size: 199, 200
   orig: 199, 200
   offset: 0, 0
   index: -1
 core/character_hero
   rotate: false
-  xy: 2, 264
+  xy: 2, 270
   size: 375, 374
   orig: 375, 374
   offset: 0, 0
   index: -1
 core/character_pet
   rotate: false
-  xy: 2, 640
+  xy: 2, 646
   size: 380, 375
   orig: 380, 375
   offset: 0, 0
   index: -1
 core/enemy_anxiety
   rotate: false
-  xy: 384, 659
+  xy: 841, 867
   size: 155, 154
   orig: 155, 154
   offset: 0, 0
   index: -1
 core/enemy_doubt
   rotate: false
-  xy: 541, 659
+  xy: 400, 217
   size: 154, 154
   orig: 154, 154
   offset: 0, 0
   index: -1
 core/enemy_fear
   rotate: false
-  xy: 697, 665
+  xy: 642, 672
   size: 155, 153
   orig: 155, 153
   offset: 0, 0
   index: -1
 core/enemy_trauma
   rotate: false
-  xy: 854, 665
+  xy: 400, 62
   size: 155, 153
   orig: 155, 153
+  offset: 0, 0
+  index: -1
+core/game_logo
+  rotate: false
+  xy: 384, 765
+  size: 256, 256
+  orig: 256, 256
   offset: 0, 0
   index: -1
 core/map_tile
@@ -62,28 +69,28 @@ core/map_tile
   index: -1
 core/projectile_courage
   rotate: false
-  xy: 2, 68
+  xy: 642, 827
   size: 197, 194
   orig: 197, 194
   offset: 0, 0
   index: -1
 core/projectile_joy
   rotate: false
-  xy: 585, 821
+  xy: 384, 569
   size: 196, 194
   orig: 196, 194
   offset: 0, 0
   index: -1
 core/projectile_love
   rotate: false
-  xy: 783, 820
+  xy: 203, 73
   size: 195, 195
   orig: 195, 195
   offset: 0, 0
   index: -1
 core/projectile_peace
   rotate: false
-  xy: 201, 68
+  xy: 379, 373
   size: 195, 194
   orig: 195, 194
   offset: 0, 0
