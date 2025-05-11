@@ -9,25 +9,25 @@ import lombok.Getter;
 
 @Getter
 public class BulletData {
-    private final BulletId name;
+    private final BulletId bulletId;
 
     private TextureRegion texture;
 
     public BulletData (XmlReader.Element element) {
         final XmlReader.Element bullet = element.getChildByName("bullet");
-        name = new BulletId(bullet.getAttribute("name"));
+        bulletId = new BulletId(bullet.getAttribute("name"));
     }
 
     public TextureRegion getTexture () {
         if (texture == null) {
-            texture = Locator.get(Resources.class).getTexture("core/projectile_" + name.name);
+            texture = Locator.get(Resources.class).getTexture("core/projectile_" + bulletId.name);
         }
         return texture;
     }
 
     // Value object for BulletId
     @Data
-    private static final class BulletId {
+    public static final class BulletId {
         private final String name;
     }
 }
