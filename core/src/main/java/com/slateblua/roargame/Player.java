@@ -25,7 +25,7 @@ public class Player implements Movable {
     @Getter
     private int score;
 
-    private Array<BaseWeapon> weapons;
+    private Array<Weapon> weapons;
 
     private int currentWeaponIndex;
 
@@ -44,7 +44,7 @@ public class Player implements Movable {
         weapons = new Array<>();
         final Array<WeaponData> weaponsData = Locator.get(GameData.class).getWeapons();
         for (final WeaponData weaponsDatum : weaponsData) {
-            weapons.add(BaseWeapon.fromData(weaponsDatum));
+            weapons.add(Weapon.fromData(weaponsDatum));
         }
     }
 
@@ -140,7 +140,7 @@ public class Player implements Movable {
         score += value;
     }
 
-    public BaseWeapon getCurrentWeapon () {
+    public Weapon getCurrentWeapon () {
         return weapons.get(currentWeaponIndex);
     }
 

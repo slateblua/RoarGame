@@ -3,7 +3,7 @@ package com.slateblua.roargame.weapon;
 import com.badlogic.gdx.math.Vector2;
 import lombok.Getter;
 
-public class BaseWeapon {
+public class Weapon {
     // Getters
     @Getter
     protected String name;
@@ -14,7 +14,7 @@ public class BaseWeapon {
 
     protected WeaponData weaponData;
 
-    private BaseWeapon (final WeaponData weaponData) {
+    private Weapon (final WeaponData weaponData) {
         this.weaponData = weaponData;
     }
 
@@ -26,7 +26,7 @@ public class BaseWeapon {
         return Bullet.getFromPool(position, direction, weaponData);
     }
 
-    public static BaseWeapon fromData (final WeaponData weaponData) {
-        return new BaseWeapon(weaponData);
+    public static Weapon fromData (final WeaponData weaponData) {
+        return new Weapon(weaponData);
     }
 }
