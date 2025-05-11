@@ -10,8 +10,8 @@ import lombok.Getter;
 
 @Getter
 public class Bullet implements Movable, Pool.Poolable {
-    protected Vector2 position;
-    protected Vector2 velocity;
+    protected Vector2 position = new Vector2();
+    protected Vector2 velocity = new Vector2();
     protected int damage;
     protected float lifetime;
 
@@ -25,14 +25,15 @@ public class Bullet implements Movable, Pool.Poolable {
         lifetime += delta;
 
         if (isExpired()) {
+            reset(); // Reset the bullet's state before returning it to the pool
             Pools.free(this);
         }
     }
 
     public static Bullet getFromPool (final Vector2 position, final Vector2 direction, final WeaponData weaponData) {
         final Bullet pooledBullet = Pools.obtain(Bullet.class);
-        pooledBullet.position = position;
-        pooledBullet.velocity = direction.cpy().scl(600f);
+        pooledBullet.position.set(position);
+        pooledBullet.velocity.set(direction).scl(600f);
         pooledBullet.setData(weaponData);
 
         return pooledBullet;
@@ -53,14 +54,19 @@ public class Bullet implements Movable, Pool.Poolable {
     }
 
     public void setData (final WeaponData weaponData) {
+        if (weaponData == null || weaponData.getBulletData() == null || weaponData.getBulletData().getTexture() == null) {
+            throw new IllegalArgumentException("WeaponData or its BulletData is invalid.");
+        }
         texture = weaponData.getBulletData().getTexture();
         damage = weaponData.getDamage();
     }
 
     @Override
     public void reset () {
-        lifetime = 0;
+        position.setZero();
         velocity.setZero();
+        lifetime = 0;
+        damage = 0;
     }
 
     @Override

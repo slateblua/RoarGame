@@ -11,13 +11,18 @@ import lombok.Getter;
 public class BulletData {
     private final BulletId name;
 
+    private TextureRegion texture;
+
     public BulletData (XmlReader.Element element) {
         final XmlReader.Element bullet = element.getChildByName("bullet");
         name = new BulletId(bullet.getAttribute("name"));
     }
 
     public TextureRegion getTexture () {
-        return Locator.get(Resources.class).getTexture("core/projectile_" + name.name);
+        if (texture == null) {
+            texture = Locator.get(Resources.class).getTexture("core/projectile_" + name.name);
+        }
+        return texture;
     }
 
     // Value object for BulletId
