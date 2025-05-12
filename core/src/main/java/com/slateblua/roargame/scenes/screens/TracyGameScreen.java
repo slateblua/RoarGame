@@ -45,6 +45,9 @@ public class TracyGameScreen extends ScreenAdapter {
     private boolean innerSpiritActive;
     private float innerSpiritTimer;
 
+    private float autoShootTimer = 0f; // Timer for auto-shooting
+    private static final float AUTO_SHOOT_COOLDOWN = 0.5f; // Cooldown in seconds
+
     public TracyGameScreen(final RoarGame game) {
         this.batch = game.getBatch();
 
@@ -146,11 +149,6 @@ public class TracyGameScreen extends ScreenAdapter {
             }
         }
 
-        // Fire weapon if ready
-        if (player.canShoot()) {
-            projectiles.add(player.shoot());
-        }
-
         // Handle collisions
         handleCollisions();
 
@@ -171,6 +169,29 @@ public class TracyGameScreen extends ScreenAdapter {
         // Check if player can summon inner spirit
         if (!innerSpiritActive && player.getEnergy() >= PET_ENERGY_COST) {
             spawnPet();
+        }
+
+        autoShootTimer -= delta;
+        // Auto-shoot logic
+        autoShoot();
+    }
+
+    private void autoShoot () {
+        // Auto-shoot logic
+        if (autoShootTimer <= 0 && !enemies.isEmpty() && !innerSpiritActive) {
+            BaseEnemy closestEnemy = findClosestEnemy();
+            if (closestEnemy != null) {
+                final Vector2 direction = new Vector2(closestEnemy.getPosition())
+                    .sub(player.getPosition())
+                    .nor();
+
+                // Create and configure the bullet
+                final Bullet bullet = player.shoot(direction);
+                if (bullet != null) {
+                    projectiles.add(bullet);
+                    autoShootTimer = AUTO_SHOOT_COOLDOWN;
+                }
+            }
         }
     }
 
@@ -201,6 +222,26 @@ public class TracyGameScreen extends ScreenAdapter {
         }
         // Render player
         player.render(batch);
+    }
+
+    private BaseEnemy findClosestEnemy() {
+        if (enemies.isEmpty()) {
+            return null;
+        }
+
+        BaseEnemy closest = null;
+        float closestDistSq = Float.MAX_VALUE;
+        Vector2 playerPos = player.getPosition();
+
+        for (BaseEnemy enemy : enemies) {
+            float distSq = playerPos.dst2(enemy.getPosition());
+            if (distSq < closestDistSq) {
+                closestDistSq = distSq;
+                closest = enemy;
+            }
+        }
+
+        return closest;
     }
 
     private void handleCollisions () {

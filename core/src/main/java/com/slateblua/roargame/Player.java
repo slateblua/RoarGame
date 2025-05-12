@@ -1,7 +1,5 @@
 package com.slateblua.roargame;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -13,6 +11,8 @@ import lombok.Setter;
 public class Player implements Movable {
     public static final float SPEED = 400f;
     public static final float PLAYER_BOX_SIZE = 200f;
+
+    public Vector2 joystickVelocityInfluence = new Vector2(0, 0);
 
     @Getter
     private final Vector2 position;
@@ -65,49 +65,18 @@ public class Player implements Movable {
         );
     }
 
-    // temporary
-    private void handleInput () {
-        // Reset velocity
+    private void handleInput() {
         velocity.set(0, 0);
-
-        // Movement input
-        if (Gdx.input.isKeyPressed(Input.Keys.W)) {
-            velocity.y = SPEED;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.S)) {
-            velocity.y = -SPEED;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.A)) {
-            velocity.x = -SPEED;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.D)) {
-            velocity.x = SPEED;
-        }
-
-        // Normalize diagonal movement
-        if (velocity.len() > SPEED) {
-            velocity.nor().scl(SPEED);
-        }
+        velocity.set(joystickVelocityInfluence);
     }
 
-    public Bullet shoot () {
-        // Get mouse position in world coordinates
-        float mouseX = Gdx.input.getX();
-        float mouseY = Gdx.input.getY();
+    // Method to be called by GamePad when joystick is released
+    public void resetJoystickInfluence() {
+        joystickVelocityInfluence.set(0, 0);
+    }
 
-        // Convert screen coordinates to world coordinates
-        // Note: This is a simplified version. In a real game, you'd use camera.unproject
-        Vector2 mousePosition = new Vector2(mouseX, Gdx.graphics.getHeight() - mouseY);
-
-        // Calculate direction
-        Vector2 direction = new Vector2(mousePosition).sub(new Vector2((float) Gdx.graphics.getWidth() / 2, (float) Gdx.graphics.getHeight() / 2)).nor();
-
-        // Fire weapon
+    public Bullet shoot (Vector2 direction) {
         return getCurrentWeapon().shoot(position.cpy(), direction);
-    }
-
-    public boolean canShoot () {
-        return Gdx.input.isButtonJustPressed(Input.Buttons.LEFT);
     }
 
     public void takeDamage (int damage) {
