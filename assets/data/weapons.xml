@@ -1,0 +1,11 @@
+<root>
+    <weapon damage="15" cooldown="2" name="courage">
+        <bullet name="courage"/>
+    </weapon>
+    <weapon damage="10" cooldown="1" name="love">
+        <bullet name="love"/>
+    </weapon>
+    <weapon damage="8" cooldown="1" name="peace">
+        <bullet name="peace"/>
+    </weapon>
+</root>
