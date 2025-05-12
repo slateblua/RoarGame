@@ -28,7 +28,7 @@ public class SplashScreen extends ScreenAdapter {
 
     @Override
     public void show () {
-        final Texture splashTexture = new Texture(Gdx.files.internal("raws/core/game_logo.png"));
+        final Texture splashTexture = new Texture(Gdx.files.internal("splash_logo.png"));
         final Image splashImage = new Image(splashTexture);
         splashImage.setScaling(Scaling.fit);
 
