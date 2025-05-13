@@ -16,6 +16,10 @@ public class GameData {
 
     @Getter
     private final Array<PetData> pets = new Array<>();
+
+    @Getter
+    private final ObjectMap<PetData.PetId, PetData> petMap = new ObjectMap<>();
+
     @Getter
     private final Array<BonusData> bonuses = new Array<>();
     @Getter
@@ -61,6 +65,12 @@ public class GameData {
         final FileHandle handle = Gdx.files.internal("data/pets.xml");
         final XmlReader.Element root = reader.parse(handle);
 
-//        final Array<XmlReader.Element> petsXml = root.getChildrenByName(PET_TAG);
+        final Array<XmlReader.Element> petsXml = root.getChildrenByName(PET_TAG);
+
+        for (final XmlReader.Element pet : petsXml) {
+            final PetData petData = new PetData(pet);
+            pets.add(petData);
+            petMap.put(petData.getPetId(), petData);
+        }
     }
 }
