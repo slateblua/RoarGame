@@ -1,17 +1,17 @@
 package com.slateblua.roargame.pet;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import com.slateblua.roargame.Locator;
-import com.slateblua.roargame.Movable;
-import com.slateblua.roargame.Resources;
+import com.slateblua.roargame.*;
+import com.slateblua.roargame.data.SaveManager;
 import com.slateblua.roargame.enemy.BaseEnemy;
 import lombok.Getter;
+import lombok.Setter;
 
 public class Pet implements Movable {
-    final TextureRegion region = Locator.get(Resources.class).getTexture("core/character_pet");
+    @Setter
+    private PetData data;
 
     @Getter
     private final Vector2 position;
@@ -25,6 +25,12 @@ public class Pet implements Movable {
         this.velocity = new Vector2();
         this.attackTimer = 0;
         this.rotationAngle = 0;
+
+        Locator.get(EventSystem.class).register(this);
+
+        final String selectedPet = SaveManager.getInstance().getSelectedPet();
+
+        data = Locator.get(GameData.class).getPetMap().get(new PetData.PetId(selectedPet));
     }
 
     public void update (float deltaTime, Vector2 playerPosition, Array<BaseEnemy> enemies) {
@@ -65,7 +71,7 @@ public class Pet implements Movable {
 
     public void render (SpriteBatch batch) {
             batch.draw(
-                region,
+                data.getTexture(),
                 position.x - PET_BOX_SIZE / 2,
                 position.y - PET_BOX_SIZE / 2 + 120,
                 PET_BOX_SIZE,
@@ -83,5 +89,12 @@ public class Pet implements Movable {
     @Override
     public float getHeight () {
         return PET_BOX_SIZE;
+    }
+
+    @EventSystem.Subscribe
+    public void onPetChanged (final PetChangedEvent event) {
+        final String selectedPet = SaveManager.getInstance().getSelectedPet();
+        final PetData.PetId petId = new PetData.PetId(selectedPet);
+        setData(Locator.get(GameData.class).getPetMap().get(petId));
     }
 }
