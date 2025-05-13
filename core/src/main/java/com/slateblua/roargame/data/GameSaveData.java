@@ -14,7 +14,7 @@ public class GameSaveData implements Serializable {
     private long lastSaveTime;
 
     public GameSaveData () {
-        this.selectedPetId = "pet_story_cat";
+        this.selectedPetId = "story_cat";
         this.totalScore = 0;
         this.lastSaveTime = System.currentTimeMillis();
     }
