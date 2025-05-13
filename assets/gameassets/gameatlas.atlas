@@ -6,97 +6,145 @@ filter: Nearest, Nearest
 repeat: none
 core/bonus
   rotate: false
-  xy: 2, 68
+  xy: 637, 295
   size: 199, 200
   orig: 199, 200
   offset: 0, 0
   index: -1
 core/character_hero
   rotate: false
-  xy: 2, 270
+  xy: 2, 260
   size: 375, 374
   orig: 375, 374
   offset: 0, 0
   index: -1
-core/character_pet
-  rotate: false
-  xy: 2, 646
-  size: 380, 375
-  orig: 380, 375
-  offset: 0, 0
-  index: -1
 core/enemy_anxiety
   rotate: false
-  xy: 841, 867
+  xy: 838, 341
   size: 155, 154
   orig: 155, 154
   offset: 0, 0
   index: -1
 core/enemy_doubt
   rotate: false
-  xy: 400, 217
+  xy: 854, 185
   size: 154, 154
   orig: 154, 154
   offset: 0, 0
   index: -1
 core/enemy_fear
   rotate: false
-  xy: 642, 672
+  xy: 854, 30
   size: 155, 153
   orig: 155, 153
-  offset: 0, 0
-  index: -1
-core/enemy_trauma
-  rotate: false
-  xy: 400, 62
-  size: 155, 153
-  orig: 155, 153
-  offset: 0, 0
-  index: -1
-core/game_logo
-  rotate: false
-  xy: 384, 765
-  size: 256, 256
-  orig: 256, 256
   offset: 0, 0
   index: -1
 core/map_tile
   rotate: false
-  xy: 2, 2
+  xy: 900, 858
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
+core/pet_bear
+  rotate: false
+  xy: 384, 755
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+core/pet_cat
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+core/pet_doggo
+  rotate: false
+  xy: 642, 755
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+core/pet_owl
+  rotate: false
+  xy: 384, 497
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+core/pet_penguey
+  rotate: false
+  xy: 642, 497
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+core/pet_story_cat
+  rotate: false
+  xy: 2, 636
+  size: 380, 375
+  orig: 380, 375
+  offset: 0, 0
+  index: -1
 core/projectile_courage
   rotate: false
-  xy: 642, 827
+  xy: 260, 43
   size: 197, 194
   orig: 197, 194
   offset: 0, 0
   index: -1
 core/projectile_joy
   rotate: false
-  xy: 384, 569
+  xy: 459, 43
   size: 196, 194
   orig: 196, 194
   offset: 0, 0
   index: -1
 core/projectile_love
   rotate: false
-  xy: 203, 73
+  xy: 657, 98
   size: 195, 195
   orig: 195, 195
   offset: 0, 0
   index: -1
+core/splash_logo
+  rotate: false
+  xy: 379, 239
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+core/ui-close-icon
+  rotate: false
+  xy: 900, 924
+  size: 87, 87
+  orig: 87, 87
+  offset: 0, 0
+  index: -1
+
+gameatlas2.png
+size: 512, 256
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+core/enemy_trauma
+  rotate: false
+  xy: 199, 43
+  size: 155, 153
+  orig: 155, 153
+  offset: 0, 0
+  index: -1
 core/projectile_peace
   rotate: false
-  xy: 379, 373
+  xy: 2, 2
   size: 195, 194
   orig: 195, 194
   offset: 0, 0
   index: -1
 
-gameatlas2.png
+gameatlas3.png
 size: 1024, 512
 format: RGBA8888
 filter: Nearest, Nearest
