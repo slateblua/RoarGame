@@ -1,9 +1,14 @@
 package com.slateblua.roargame;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.ObjectMap;
@@ -14,7 +19,7 @@ import lombok.Getter;
  * texture atlases, skins, drawables, and texture regions. It ensures that assets are efficiently
  * reused to minimize memory usage and improve performance.
  */
-public class Resources {
+public class Resources  {
     private Skin skin;
 
     @Getter
@@ -27,12 +32,44 @@ public class Resources {
     private final ObjectMap<String, ObjectMap<Color, String>> drawableKeyCache = new ObjectMap<>();
     private final ObjectMap<String, TextureRegion> textureRegionCache = new ObjectMap<>();
 
+    private BitmapFont armenianFont;
+
+    // String containing all Armenian uppercase and lowercase letters
+    public static final String ARMENIAN_CHARACTERS = "ԱԲԳԴԵԶԷԸԹԺԻԼԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋՌՍՎՏՐՑՒՓՔՕՖ" +
+        "աբգդեզէըթժիլխծկհձղճմյնշոչպջռսվտրցւփքօֆ";
+
     /**
      * Initializes a new Resources instance and starts loading the primary texture atlas.
      */
     public Resources () {
         this.assetManager = new AssetManager();
         assetManager.load("gameassets/gameatlas.atlas", TextureAtlas.class);
+
+        loadFonts();
+    }
+
+    @Getter
+    private Label.LabelStyle labelStyle;
+
+    private void loadFonts () {
+        final FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/DejaVuSans.ttf")); // Replace with your font file
+        final FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+
+        // 2. Configure the parameter
+        parameter.size = 40; // Set the font size
+        parameter.color = Color.WHITE; // Set the font color
+        parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + ARMENIAN_CHARACTERS; // Include default ASCII chars + Armenian
+        parameter.minFilter = Texture.TextureFilter.Linear;
+        parameter.magFilter = Texture.TextureFilter.Linear;
+        parameter.borderWidth = 3;
+
+        armenianFont = generator.generateFont(parameter);
+
+        labelStyle = new Label.LabelStyle();
+        labelStyle.font = armenianFont;
+        labelStyle.fontColor = Color.WHITE;
+
+        generator.dispose();
     }
 
     /**

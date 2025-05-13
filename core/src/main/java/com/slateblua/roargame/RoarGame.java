@@ -2,6 +2,7 @@ package com.slateblua.roargame;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.slateblua.roargame.scenes.NavController;
 import com.slateblua.roargame.scenes.screens.SplashScreen;
 import lombok.Getter;
 
@@ -20,6 +21,8 @@ public class RoarGame extends Game {
     private void addModules () {
         Locator.get().addModule(Resources.class);
         Locator.get().addModule(GameData.class);
+        Locator.get().addModule(NavController.class);
+        Locator.get().addModule(EventSystem.class);
     }
 
     @Override

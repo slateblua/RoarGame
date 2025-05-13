@@ -1,15 +1,16 @@
 package com.slateblua.roargame;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.slateblua.roargame.scenes.components.OffsetButton;
-import com.slateblua.roargame.scenes.components.Style;
+import com.slateblua.roargame.scenes.components.Shape;
 
 public class GamePad extends Table {
     private final Player playerInstance;
-    private final OffsetButton joystickKnobImage;
+    private final Table joystickKnobImage;
 
     private final Vector2 knobRelativePosition = new Vector2(); // Knob's current position relative to joystick center
     private final Vector2 knobVisualCenterOffset = new Vector2(); // To help draw knob centered
@@ -25,7 +26,9 @@ public class GamePad extends Table {
     public GamePad () {
         this.playerInstance = Player.get();
 
-        joystickKnobImage = new OffsetButton(Style.BLUE_40_35_7_13);
+        joystickKnobImage = new Table();
+        joystickKnobImage.setTouchable(Touchable.enabled);
+        joystickKnobImage.setBackground(Shape.ROUNDED_50.getDrawable(Color.valueOf("#43a6f2")));
 
         final float knobSize = 70f;
         joystickOperableRadius = baseSize / 2f - knobSize / 2f;
@@ -38,7 +41,12 @@ public class GamePad extends Table {
         final Table joystickStack = new Table();
         joystickStack.add(joystickKnobImage); // Knob is drawn on top
 
-        this.add(joystickStack).size(baseSize, baseSize); // The joystick assembly size
+        final Table wrapper = new Table();
+        pad(10);
+        wrapper.setBackground(Shape.ROUNDED_50.getDrawable(Color.valueOf("#11111181")));
+        wrapper.add(joystickStack).size(baseSize, baseSize); // The joystick assembly size
+
+        add(wrapper);
 
         resetKnobPosition();
 
@@ -98,8 +106,8 @@ public class GamePad extends Table {
 
     private void resetKnobPosition () {
         knobRelativePosition.set(0, 0);
-        float knobCenterX = baseSize / 2f - knobVisualCenterOffset.x;
-        float knobCenterY = baseSize / 2f - knobVisualCenterOffset.y;
+        float knobCenterX = (baseSize - joystickKnobImage.getWidth()) / 2f;
+        float knobCenterY = (baseSize - joystickKnobImage.getHeight()) / 2f;
         joystickKnobImage.setPosition(knobCenterX, knobCenterY);
     }
 

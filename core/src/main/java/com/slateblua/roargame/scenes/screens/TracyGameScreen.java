@@ -46,7 +46,7 @@ public class TracyGameScreen extends ScreenAdapter {
     private float innerSpiritTimer;
 
     private float autoShootTimer = 0f; // Timer for auto-shooting
-    private static final float AUTO_SHOOT_COOLDOWN = 0.5f; // Cooldown in seconds
+    private static final float AUTO_SHOOT_COOLDOWN = 0.8f; // Cooldown in seconds
 
     public TracyGameScreen(final RoarGame game) {
         this.batch = game.getBatch();
@@ -161,7 +161,7 @@ public class TracyGameScreen extends ScreenAdapter {
 
         // Spawn bonuses
         bonusSpawnTimer += delta;
-        if (bonusSpawnTimer >= 30f) {
+        if (bonusSpawnTimer >= 10f) {
             spawnBonus();
             bonusSpawnTimer = 0;
         }

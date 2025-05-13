@@ -5,9 +5,10 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.slateblua.roargame.scenes.pages.BasePage;
-import com.slateblua.roargame.scenes.pages.BasePopup;
-import com.slateblua.roargame.scenes.pages.NavController;
+import com.slateblua.roargame.scenes.PetsPage;
+import com.slateblua.roargame.scenes.NavController;
+import com.slateblua.roargame.scenes.components.IconButton;
+import com.slateblua.roargame.scenes.components.Style;
 import com.slateblua.roargame.weapon.WeaponData;
 import lombok.Getter;
 
@@ -15,7 +16,6 @@ public class GameUI {
     private final Stage stage;
     @Getter
     private final Table rootTable;
-    private final NavController navController;
 
     private static GameUI gameUI;
 
@@ -37,12 +37,46 @@ public class GameUI {
 
         stage.addActor(rootTable);
 
-        final GamePad actor = new GamePad();
-        rootTable.add(actor).size(240).expand().bottom().padBottom(100);
+        final Table gamePadTable = createGamePadTable();
+        rootTable.addActor(gamePadTable);
 
-        navController = new NavController(stage, rootTable);
+        final Table petTable = createPetButtonTable();
+        rootTable.addActor(petTable);
+
+        // init dialog manager
+        final Table dialogContainer = new Table();
+        dialogContainer.setFillParent(true);
+
+        stage.addActor(dialogContainer);
+        Locator.get(NavController.class).init(dialogContainer);
 
         Gdx.input.setInputProcessor(stage);
+    }
+
+    private Table createPetButtonTable () {
+        final Table petTable = new Table();
+        petTable.setFillParent(true);
+
+        final IconButton petPageButton = new IconButton(Style.BLUE_40_35_7_13, "core/pet_cat");
+        petPageButton.getIconCell().pad(5);
+
+        petPageButton.setOnClick(() -> {
+            NavController.show(PetsPage.class);
+        });
+
+        petTable.add(petPageButton).size(140).expand().top().right().padTop(150).pad(100);
+
+        return petTable;
+    }
+
+    private Table createGamePadTable () {
+        final Table controllerTable = new Table();
+        controllerTable.setFillParent(true);
+        final GamePad actor = new GamePad();
+
+        controllerTable.add(actor).expand().bottom().size(100).padBottom(250);
+
+        return controllerTable;
     }
 
     private Table createWeaponsComponent () {
@@ -57,18 +91,6 @@ public class GameUI {
         }
 
         return weaponsTable;
-    }
-
-    public void closePopup () {
-        navController.closePopup();
-    }
-
-    public void openPage (final Class<? extends BasePage> pageClass) {
-        navController.openPage(pageClass);
-    }
-
-    public void showPopup (final Class<? extends BasePopup> popupClass) {
-        navController.showPopup(popupClass);
     }
 
     public void render () {
