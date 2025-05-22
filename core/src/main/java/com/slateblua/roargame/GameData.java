@@ -5,7 +5,6 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.badlogic.gdx.utils.XmlReader;
-import com.slateblua.roargame.bonus.BonusData;
 import com.slateblua.roargame.pet.PetData;
 import com.slateblua.roargame.weapon.Weapon;
 import com.slateblua.roargame.weapon.WeaponData;
@@ -20,8 +19,6 @@ public class GameData {
     @Getter
     private final ObjectMap<PetData.PetId, PetData> petMap = new ObjectMap<>();
 
-    @Getter
-    private final Array<BonusData> bonuses = new Array<>();
     @Getter
     private final Array<WeaponData> weapons = new Array<>();
 
