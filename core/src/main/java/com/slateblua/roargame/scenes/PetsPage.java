@@ -6,7 +6,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Scaling;
 import com.slateblua.roargame.*;
-import com.slateblua.roargame.data.SaveManager;
 import com.slateblua.roargame.pet.PetChangedEvent;
 import com.slateblua.roargame.pet.PetData;
 import com.slateblua.roargame.scenes.components.*;
@@ -70,12 +69,11 @@ public class PetsPage extends BasePage {
     }
 
     public void selectPet (PetData pet) {
-        SaveManager.getInstance().setSelectedPet(pet.getPetId().getName());
-
         final EventSystem eventSystem = Locator.get(EventSystem.class);
-        final PetChangedEvent obtain = eventSystem.obtain(PetChangedEvent.class);
+        final PetChangedEvent event = eventSystem.obtain(PetChangedEvent.class);
+        event.setNewPet(pet.getPetId());
 
-        eventSystem.fire(obtain);
+        eventSystem.fire(event);
     }
 
     public static class PetTable extends BorderedTable {

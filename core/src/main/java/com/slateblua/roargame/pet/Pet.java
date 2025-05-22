@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.slateblua.roargame.*;
-import com.slateblua.roargame.data.SaveManager;
 import com.slateblua.roargame.enemy.BaseEnemy;
 import com.slateblua.roargame.systems.EventSystem;
 import lombok.Getter;
@@ -29,7 +28,7 @@ public class Pet implements Movable {
 
         Locator.get(EventSystem.class).register(this);
 
-        final String selectedPet = SaveManager.getInstance().getSelectedPet();
+        final String selectedPet = "pet_story_cat";
 
         data = Locator.get(GameData.class).getPetMap().get(new PetData.PetId(selectedPet));
     }
@@ -94,8 +93,6 @@ public class Pet implements Movable {
 
     @EventSystem.Subscribe
     public void onPetChanged (final PetChangedEvent event) {
-        final String selectedPet = SaveManager.getInstance().getSelectedPet();
-        final PetData.PetId petId = new PetData.PetId(selectedPet);
-        setData(Locator.get(GameData.class).getPetMap().get(petId));
+        setData(Locator.get(GameData.class).getPetMap().get(event.getNewPet()));
     }
 }
