@@ -31,14 +31,12 @@ public class GameData {
     private final ObjectMap<WeaponData, Weapon> weaponMap = new ObjectMap<>();
 
     public GameData () {
-        loadBonuses();
         loadWeapons();
         loadPets();
     }
 
     private static final String WEAPON_TAG = "weapon";
     private static final String PET_TAG = "pet";
-    private static final String BONUS_TAG = "bonus";
 
     private void loadWeapons () {
         final FileHandle handle = Gdx.files.internal("data/weapons.xml");
@@ -52,13 +50,6 @@ public class GameData {
 
             weaponMap.put(weaponData, Weapon.fromData(weaponData));
         }
-    }
-
-    private void loadBonuses () {
-        final FileHandle handle = Gdx.files.internal("data/bonus.xml");
-        final XmlReader.Element root = reader.parse(handle);
-
-//        final Array<XmlReader.Element> bonusXml = root.getChildrenByName(BONUS_TAG);
     }
 
     private void loadPets () {
