@@ -24,8 +24,6 @@ public class GameData {
     private final Array<BonusData> bonuses = new Array<>();
     @Getter
     private final Array<WeaponData> weapons = new Array<>();
-    @Getter
-    private final Array<CharacterData> characters = new Array<>();
 
     @Getter
     private final ObjectMap<WeaponData, Weapon> weaponMap = new ObjectMap<>();
