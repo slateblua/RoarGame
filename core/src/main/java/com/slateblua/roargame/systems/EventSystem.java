@@ -4,22 +4,9 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.badlogic.gdx.utils.Pool;
 
-import java.lang.annotation.*;
 import java.lang.reflect.Method;
 
 public class EventSystem {
-    // Annotation
-    @Retention(RetentionPolicy.RUNTIME)
-    @Target(ElementType.METHOD)
-    public @interface Subscribe {}
-
-    // Base Event
-    public static abstract class Event implements Pool.Poolable {
-        @Override
-        public void reset() {
-            // Reset fields if needed
-        }
-    }
 
     // Listener entry (cached)
     private static class ListenerEntry {
@@ -27,7 +14,7 @@ public class EventSystem {
         Method method;
         Class<? extends Event> eventType;
 
-        ListenerEntry(Object listenerObject, Method method, Class<? extends Event> eventType) {
+        ListenerEntry (Object listenerObject, Method method, Class<? extends Event> eventType) {
             this.listenerObject = listenerObject;
             this.method = method;
             this.eventType = eventType;
@@ -38,7 +25,7 @@ public class EventSystem {
     private final PoolMap poolMap = new PoolMap();
 
     // Register an object that has @Subscribe methods
-    public void register(Object listenerObject) {
+    public void register (Object listenerObject) {
         for (Method method : listenerObject.getClass().getDeclaredMethods()) {
             if (method.isAnnotationPresent(Subscribe.class)) {
                 Class<?>[] params = method.getParameterTypes();
@@ -54,7 +41,7 @@ public class EventSystem {
     }
 
     // Fire an event
-    public <T extends Event> void fire(T event) {
+    public <T extends Event> void fire (T event) {
         for (int i = 0; i < listeners.size; i++) {
             ListenerEntry entry = listeners.get(i);
             if (entry.eventType.isInstance(event)) {
@@ -69,11 +56,11 @@ public class EventSystem {
     }
 
     // Obtain and pool
-    public <T extends Event> T obtain(Class<T> type) {
+    public <T extends Event> T obtain (Class<T> type) {
         return poolMap.obtain(type);
     }
 
-    private <T extends Event> void pool(T event) {
+    private <T extends Event> void pool (T event) {
         poolMap.free(event);
     }
 
@@ -82,12 +69,12 @@ public class EventSystem {
         private final ObjectMap<Class<? extends Event>, Pool<? extends Event>> pools = new ObjectMap<>();
 
         @SuppressWarnings("unchecked")
-        public <T extends Event> T obtain(Class<T> type) {
+        public <T extends Event> T obtain (Class<T> type) {
             Pool<T> pool = (Pool<T>) pools.get(type);
             if (pool == null) {
                 pool = new Pool<T>() {
                     @Override
-                    protected T newObject() {
+                    protected T newObject () {
                         try {
                             return type.newInstance();
                         } catch (Exception e) {
@@ -101,7 +88,7 @@ public class EventSystem {
         }
 
         @SuppressWarnings("unchecked")
-        public <T extends Event> void free(T event) {
+        public <T extends Event> void free (T event) {
             Pool<T> pool = (Pool<T>) pools.get(event.getClass());
             if (pool != null) {
                 pool.free(event);

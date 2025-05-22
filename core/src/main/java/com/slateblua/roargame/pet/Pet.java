@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.Array;
 import com.slateblua.roargame.*;
 import com.slateblua.roargame.enemy.BaseEnemy;
 import com.slateblua.roargame.systems.EventSystem;
+import com.slateblua.roargame.systems.Subscribe;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -91,7 +92,7 @@ public class Pet implements Movable {
         return PET_BOX_SIZE;
     }
 
-    @EventSystem.Subscribe
+    @Subscribe
     public void onPetChanged (final PetChangedEvent event) {
         setData(Locator.get(GameData.class).getPetMap().get(event.getNewPet()));
     }
