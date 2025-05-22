@@ -13,7 +13,7 @@ import com.badlogic.gdx.utils.Pools;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.slateblua.roargame.GameUI;
-import com.slateblua.roargame.Map;
+import com.slateblua.roargame.GameMap;
 import com.slateblua.roargame.Player;
 import com.slateblua.roargame.RoarGame;
 import com.slateblua.roargame.bonus.Bonus;
@@ -31,7 +31,7 @@ public class TracyGameScreen extends ScreenAdapter {
     private final GameUI gameUI;
 
     private final Player player;
-    private final Map map;
+    private final GameMap map;
     private final EnemyFactory enemyFactory;
     private final CollisionHandler collisionHandler;
 
@@ -74,7 +74,7 @@ public class TracyGameScreen extends ScreenAdapter {
 
         // Create entities
         player = Player.get();
-        map = new Map();
+        map = new GameMap();
         enemyFactory = new EnemyFactory();
         collisionHandler = new CollisionHandler();
 

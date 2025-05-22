@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class Map {
+public class GameMap {
     private static final int TILE_SIZE = 256;
 
     final TextureRegion region = Locator.get(Resources.class).getTexture("core/map_tile");
