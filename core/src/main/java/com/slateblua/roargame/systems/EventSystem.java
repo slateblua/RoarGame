@@ -1,4 +1,4 @@
-package com.slateblua.roargame;
+package com.slateblua.roargame.systems;
 
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;

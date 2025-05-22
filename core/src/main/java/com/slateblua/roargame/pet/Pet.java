@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.Array;
 import com.slateblua.roargame.*;
 import com.slateblua.roargame.data.SaveManager;
 import com.slateblua.roargame.enemy.BaseEnemy;
+import com.slateblua.roargame.systems.EventSystem;
 import lombok.Getter;
 import lombok.Setter;
 

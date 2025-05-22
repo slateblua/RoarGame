@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.slateblua.roargame.scenes.NavController;
 import com.slateblua.roargame.scenes.screens.SplashScreen;
+import com.slateblua.roargame.systems.EventSystem;
 import lombok.Getter;
 
 @Getter
