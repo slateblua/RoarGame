@@ -3,7 +3,7 @@ package com.slateblua.roargame.lwjgl3;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.badlogic.gdx.graphics.glutils.HdpiMode;
-import com.slateblua.roargame.RoarGame;
+import com.slateblua.roargame.core.RoarGame;
 
 /** Launches the desktop (LWJGL3) application. */
 public class Lwjgl3Launcher {

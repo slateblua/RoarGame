@@ -1,5 +1,6 @@
 package com.slateblua.roargame;
 
+import com.slateblua.roargame.core.RoarGame;
 import org.robovm.apple.foundation.NSAutoreleasePool;
 import org.robovm.apple.uikit.UIApplication;
 

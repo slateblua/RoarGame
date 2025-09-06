@@ -12,16 +12,16 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pools;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.slateblua.roargame.GameUI;
-import com.slateblua.roargame.GameMap;
-import com.slateblua.roargame.Player;
-import com.slateblua.roargame.RoarGame;
+import com.slateblua.roargame.scenes.GameUI;
+import com.slateblua.roargame.core.GameMap;
+import com.slateblua.roargame.gamecomponent.Player;
+import com.slateblua.roargame.core.RoarGame;
 import com.slateblua.roargame.bonus.Bonus;
-import com.slateblua.roargame.pet.Pet;
-import com.slateblua.roargame.enemy.BaseEnemy;
-import com.slateblua.roargame.enemy.EnemyFactory;
-import com.slateblua.roargame.systems.CollisionHandler;
-import com.slateblua.roargame.weapon.Bullet;
+import com.slateblua.roargame.gamecomponent.pet.Pet;
+import com.slateblua.roargame.gamecomponent.enemy.BaseEnemy;
+import com.slateblua.roargame.gamecomponent.enemy.EnemyFactory;
+import com.slateblua.roargame.core.systems.CollisionHandler;
+import com.slateblua.roargame.gamecomponent.weapon.Bullet;
 
 public class TracyGameScreen extends ScreenAdapter {
     private final SpriteBatch batch;

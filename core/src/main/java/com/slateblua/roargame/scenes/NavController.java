@@ -5,8 +5,8 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.badlogic.gdx.utils.reflect.ClassReflection;
 import com.badlogic.gdx.utils.reflect.ReflectionException;
-import com.slateblua.roargame.Locator;
-import com.slateblua.roargame.scenes.pages.BasePage;
+import com.slateblua.roargame.core.Locator;
+import com.slateblua.roargame.core.component.BasePage;
 import lombok.Getter;
 
 public class NavController {

@@ -3,9 +3,9 @@ package com.slateblua.roargame.bonus;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-import com.slateblua.roargame.Locator;
-import com.slateblua.roargame.Movable;
-import com.slateblua.roargame.Resources;
+import com.slateblua.roargame.core.Locator;
+import com.slateblua.roargame.gamecomponent.Movable;
+import com.slateblua.roargame.core.Resources;
 import lombok.Getter;
 
 @Getter

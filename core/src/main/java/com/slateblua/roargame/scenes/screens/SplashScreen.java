@@ -9,9 +9,9 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Scaling;
-import com.slateblua.roargame.Locator;
-import com.slateblua.roargame.Resources;
-import com.slateblua.roargame.RoarGame;
+import com.slateblua.roargame.core.Locator;
+import com.slateblua.roargame.core.Resources;
+import com.slateblua.roargame.core.RoarGame;
 
 import java.util.Objects;
 
