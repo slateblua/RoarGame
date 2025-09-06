@@ -1,7 +1,6 @@
 package com.slateblua.roargame.core.component;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Cell;
@@ -42,19 +41,11 @@ public abstract class BasePage extends Table {
     @Getter
     @Setter
     private boolean analyticsSilent;
-    protected Table loadingContent;
-
-    private final float backgroundAlpha = 1f;
-
 
     protected Table dialogBorder;
 
 
     public BasePage () {
-        initialisation();
-    }
-
-    protected void initialisation() {
         initDialog();
 
         initCloseButton();
@@ -97,11 +88,6 @@ public abstract class BasePage extends Table {
         row();
     }
 
-    @Override
-    protected void drawBackground(Batch batch, float parentAlpha, float x, float y) {
-        super.drawBackground(batch, backgroundAlpha, x, y);
-    }
-
     protected void constructOverlay(Table overlayTable) {
         overlayTable.add(closeButton).expand().top().right().pad(20).padTop(18).size(100);
     }
@@ -112,7 +98,7 @@ public abstract class BasePage extends Table {
         closeButton.setOnClick(this::hide);
     }
 
-    protected Table initDialogBorder (Drawable borderDrawable) {
+    protected void initDialogBorder (Drawable borderDrawable) {
         dialogBorder = new Table();
         dialogBorder.setBackground(borderDrawable);
         dialogBorder.setFillParent(true);
@@ -124,14 +110,14 @@ public abstract class BasePage extends Table {
         if (titleSegment != null) {
             titleSegment.setZIndex(1);
         }
-        return dialogBorder;
     }
 
-    protected Table initDialogBorder () {
-        return initDialogBorder(Shape.ROUNDED_50_BORDER.getDrawable(Color.valueOf("#c2b8b0")));
+    protected void initDialogBorder () {
+        initDialogBorder(Shape.ROUNDED_50_BORDER.getDrawable(Color.valueOf("#c2b8b0")));
     }
+
     protected void initDialog() {
-        setBackground(Locator.get(Resources.class).obtainDrawable("components/ui-white-pixel", Color.valueOf("#000000bf")));
+        setBackground(Resources.getDrawable("components/ui-white-pixel", Color.valueOf("#000000bf")));
         setTouchable(Touchable.enabled);
         setFillParent(true);
     }
@@ -144,20 +130,7 @@ public abstract class BasePage extends Table {
         titleSegmentCell = contentWrapper.add(titleSegment).growX();
         contentWrapper.row();
         contentWrapper.add(asyncContentWrapper).grow();
-
-        setMainState();
-
         return contentWrapper;
-    }
-
-    protected boolean isAsync() {
-        return false;
-    }
-
-
-    public void setMainState() {
-        if(loadingContent != null) loadingContent.setVisible(false);
-        content.setVisible(true);
     }
 
     protected void constructDialog(Table dialog) {
@@ -199,7 +172,6 @@ public abstract class BasePage extends Table {
         dialog.getColor().a = 0.0f;
         dialog.setOrigin(Align.center);
     }
-
 
     private void onShowAnimationComplete () {
         dialog.setTransform(false);
